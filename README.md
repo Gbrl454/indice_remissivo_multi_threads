@@ -1,2 +1,6 @@
-# indice_remissivo_multi_threads
-Índice remissivo em Java utilizando múltiplas Threads
+# Índice Remissivo em Java Utilizando Múltiplas Threads
+***by: Gabriel Matos***
+
+### Leitura de Arquivos
+Inicialmente é realizada a leitura de arquivos, iniciando duas Threads para lerem as palavras-chave e o texto. <br>
+A leitura de fato de cada arquivo ocorre com a leitura completa do arquivo linha a linha utilizando a API NIO2 do Java {```java.nio.file.*```}, transformando o arquivo em uma lista de textos {```List<String>```} e percorrendo-a, limpando linha a linha com o método ```String clearLine(String str)``` onde é inicialmente limpa a linha de caracteres especiais e acentuações, substituindo-as por sua respectiva alfabética padrão (```Ex.: Ç -> C```), assim gerando um vetor de palavras, que serão percorridos e visto se o primeiro caractere é uma letra, se for será concatenado em uma *String* separando por vírgula, enfim o método ```String clearLine(String str)``` retorna uma *String* que é posta seus caracteres em minusculo e concatenado as demais linhas do arquivo. No final, existirá uma única *String* com todas as palavras do texto separadas por vírgula. 
